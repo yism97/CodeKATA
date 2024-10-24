@@ -6,7 +6,7 @@ function solution(k, score) {
     score.map(e => {
         // 명예의 전당(temp)에 점수 넣기
         temp.push(e);
-        // 명예의 전당(temp)배열을 내림차순으로 정렬한뒤, k 이후 요소 제거
+        // 명예의 전당(temp)배열을 내림차순으로 정렬한뒤, k 이후 요소 제거(0,1,2번째 요소만 필요하니까)
         temp.sort((a, b) => b - a).splice(k);
         result.push(Math.min(...temp)); // 명예의전당temp에서 최솟값을 뽑아 result에 넣기
     });
