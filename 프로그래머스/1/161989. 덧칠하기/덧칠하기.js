@@ -1,13 +1,20 @@
 function solution(n, m, section) {
-    let result = 0;
-    let lastpainted = 0;
-    
-    for (let i = 0; i < section.length; i++) {
-        if(section[i] > lastpainted) {
-            result++
-            lastpainted = section[i] + m -1
-        }
-        
+  let answer = 0;
+
+  // 현재까지 칠한 구역
+  let part = 0;
+
+  // section을 forEach() 메서드로 하나씩 확인한다.
+  section.forEach((i) => {
+    // 현재 구역이 현재까지 칠한 구역보다 크다면
+    if (i > part) {
+      // 구역을 칠해주고 현재까지 칠한 구역을 업데이트 시켜준다.
+      part = i + m - 1;
+
+      // 페인트를 칠했으니 1증가 시킨다.
+      answer++;
     }
-    return result;
+  });
+
+  return answer;
 }
